@@ -54,4 +54,23 @@ btnList.forEach((btn) => {
   })
 })
 
-const calculate = (firstOperand, operator, secondOperand) => {}
+const calculate = (firstOperand, operator, secondOperand) => {
+  // 1. 문자열을 숫자로 변환
+  const first = parseFloat(firstOperand)
+  const second = parseFloat(secondOperand)
+
+  // 2. 연산자에 따른 계산 수행
+  switch (operator) {
+    case "+":
+      return first + second
+    case "-":
+      return first - second
+    case "*":
+      return first * second
+    case "/":
+      // 0으로 나누는 경우 예외 처리
+      return second === 0 ? "Error" : first / second
+    default:
+      return second // 연산자가 없으면 두 번째 숫자 그대로 반환
+  }
+}
